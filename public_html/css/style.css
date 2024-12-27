@@ -1,0 +1,56 @@
+/* General styles */
+body {
+    background-color: black;
+    color: black;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#ascii-container {
+    width: auto; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    margin-top: 50px; /* Push the container down */
+}
+
+/* Floating character styles */
+.character {
+    position: absolute;
+    color: rgb(197, 191, 191); /* Very dark gray */
+    opacity: 0; /* Fully transparent */
+    pointer-events: auto; /* Allow interaction with the invisible elements */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth highlight effect */
+}
+
+/* Highlight effect on hover */
+.character:hover {
+    color: white; /* Invert the text color */
+    background-color: black; /* Optional: Add a background for highlighting */
+    opacity: 1; /* Temporarily make it fully visible */
+}
+
+/* Optional: Add animations for character effects */
+.rapid-flash {
+    animation: flash 0.1s infinite;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.slow-fade {
+    animation: fade 3s infinite;
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
