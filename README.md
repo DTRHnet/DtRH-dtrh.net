@@ -1,3 +1,22 @@
+## DTRH.net ##
+
+Simply a place for me to go when I am in my head..
+Or want to explore something new
+Or show the world something
+about me
+
+This is where I can just be me, unfiltered and raw.
+
+To get the ball rolling, I have been taking an interest in bug bounty, and figured getting familiar with web and javascript would be a good start.
+I combined this with my love for ascii art, no matter how bad I am at it, and wrote bunny.js to do the following
+
+1. Load an ascii art file Ive made and draw it to screen
+2. Take a secret, encoded in base64, and draw it as one would read (top to bottom, left to right) character by character in every empty space detected, within the border.
+3. Performs a few visual changes, like fading in and out, and dancing randomized characters.
+4. No decoding function is provided, but given there is a small chance someone from my world might check this, I offer its decoded text below
+
+
+
 /* To be continued...
 
 ▓▓▓▓▓▓▓█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   Beneath the surface,
