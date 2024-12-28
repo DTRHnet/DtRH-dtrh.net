@@ -1,20 +1,21 @@
 # DTRH.net
 
-Simply a place for me to go when I am in my head...  
-Or want to explore something new...  
-Or show the world something about me.
+A place for me to go when I am in my head...  
+To get away,
+or show the world something about me.
 
-This is where I can just be me—unfiltered and raw.
+This is where I can just be myself
+Unfiltered and raw.
 
 ---
 
 ## What I'm Working On
 
-I've been familiarizing myself with web programming and web application security as a result of taking a recent interest in the idea of bug bounty. 
-Naturally, I decided doing some work in Javascript might be beneficial. 
-Having ditched the idea of running a blog at this point, the result is - undefined at the moment. But that's ok.
+I've been familiarizing myself with different aspects of web programming and web application security as a result of taking a recent interest in the idea of bug bounty. 
+Naturally, I decided doing some work in Javascript would be beneficial. 
+Having ditched the idea of running a blog at this point, the result is - undefined at the moment. And that's ok.
 
-I combined this with my love for ASCII art (no matter how bad I am at it!). The rabbit visualized in ASCII is a personal attempt at FRANK, for those of you who may have seen Donnie Darko.
+I combined bunny.js with my love for ASCII art (even if I suck at it). The rabbit visualized in ASCII is a personal attempt at Frank from Donnie Darko.
 
 I wrote **bunny.js** to do the following:
 
@@ -23,7 +24,7 @@ I wrote **bunny.js** to do the following:
 3. Perform visual effects like fading in and out and "dancing" randomized characters.
 4. No decoding function is provided, but for anyone from my world who is curious, I'll offer some hints..
 
-This is not the point of the project, there is no clear path. It merely acts as the start.
+DTRH.net is much more than this though. I will be programmaticly adding hidden things about myself, blowing off steam, writing about whatever I care to. It's gonna be a lot of random. This is just the first thing I decided to do.
 
 ---
 
