@@ -1,22 +1,37 @@
-/* General styles */
 body {
     background-color: black;
-    color: black;
+    color: white;
     font-family: monospace;
     display: flex;
-    justify-content: center;
-    align-items: normal;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align items from the top */
+    align-items: center; /* Center horizontally */
     height: 100vh;
     margin: 0;
     overflow: hidden;
     position: relative;
 }
 
-#ascii-container {
-    width: auto; /* Adjust as needed */
-    height: auto; /* Adjust as needed */
-    margin-top: 50px; /* Push the container down */
+#ascii-container,
+#challenge-container,
+#extra-container {
+    width: 100%; /* Full-width containers */
+    max-width: 800px; /* Optional: limit the width */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Space between containers */
 }
+
+#challenge-container {
+    background: #111;
+    border: 1px solid white;
+}
+
+#extra-container {
+    background: #222;
+    border: 1px solid white;
+}
+
 
 /* Floating character styles */
 .character {
@@ -53,4 +68,78 @@ body {
     0% { opacity: 0; }
     50% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: monospace;
+    overflow: hidden;
+}
+
+#ascii-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#challenge-container {
+    margin-top: 30px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#extra-container {
+    margin-top: 30px; /* Ensure it's below the previous container */
+    padding: 20px;
+    background: #222;
+    border: 1px solid white;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    background: black;
+    color: grey;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: grey;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+.chaos-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.text {
+    position: absolute;
+    font-size: 2rem;
+    color: white;
+    animation: glitch-animation 0.1s infinite alternate;
+}
+
+@keyframes glitch-animation {
+    0% { opacity: 1; transform: translate(0, 0) scale(1); }
+    25% { opacity: 0.8; transform: translate(-10px, 5px) scale(1.1); }
+    50% { opacity: 0.6; transform: translate(10px, -10px) scale(0.9); }
+    75% { opacity: 0.4; transform: translate(-5px, -5px) scale(1.2); }
+    100% { opacity: 1; transform: translate(0, 0) scale(1); }
 }

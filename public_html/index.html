@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Down the Rabbit Hole</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/challenge.css">
 </head>
 <body>
+    <!-- Challenge container positioned explicitly -->
+    <div id="challenge-container">
+        <h2>I.</h2>
+        <input type="text" id="secretInput" placeholder="Look closer.." />
+        <button onclick="validateInput()">Submit</button>
+        <div class="chaos-container" id="chaosContainer"></div>
+    </div>
+
     <div id="ascii-container">
         <pre id="ascii" role="presentation">JavaScript is required to view this content.</pre>
-    </div>        
+    </div>
+
     <script src="js/bunny.js"></script>
+    <script src="js/challenge.js"></script>
 </body>
 </html>
