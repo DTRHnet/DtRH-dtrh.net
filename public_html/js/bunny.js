@@ -33,7 +33,7 @@ poeticMessage.style.fontSize = "16px";
 poeticMessage.style.margin = "10px 0";
 
 const emailMessage = document.createElement("p");
-emailMessage.textContent = "admin [AT] dtrh [DOT] net";
+emailMessage.textContent = "";
 emailMessage.style.fontSize = "14px";
 emailMessage.style.opacity = 0.8;
 emailMessage.style.margin = "10px 0";
