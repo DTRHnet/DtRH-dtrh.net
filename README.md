@@ -1,77 +1,187 @@
-# DTRH.net
+# 🐰 bunny.js
 
-A place for me to go when I am in my head...  
-To get away,
-or show the world something about me.
+**Author:** KBS  
+**Contact:** admin [AT] dtrh [DOT] net  
 
-This is where I can just be myself
-Unfiltered and raw.
+**bunny.js** is a creative JavaScript project developed to explore the language while combining elements of **digital art** and **hidden messaging**. This script showcases an interactive display of ASCII art alongside an encoded poetic message.
 
 ---
 
-## What I'm Working On
+## 🎯 Project Purpose
 
-I've been familiarizing myself with different aspects of web programming and web application security as a result of taking a recent interest in the idea of bug bounty. 
-Naturally, I decided doing some work in Javascript would be beneficial. 
-Having ditched the idea of running a blog at this point, the result is - undefined at the moment. And that's ok.
+This project was created as a stepping stone into **JavaScript**, aiming to build familiarity with DOM manipulation, asynchronous loading, and visual effects. Additionally, it serves as a form of artistic expression in two distinct ways:
 
-I combined bunny.js with my love for ASCII art (even if I suck at it). The rabbit visualized in ASCII is a personal attempt at Frank from Donnie Darko.
-
-I wrote **bunny.js** to do the following:
-
-1. Load an ASCII art file in txt format I've made and render it to screen.
-2. Take a secret, encoded in Base64, and render it (top-to-bottom, left-to-right), character by character, in every empty space within the ASCII art's border.
-3. Perform visual effects like fading in and out and "dancing" randomized characters.
-4. No decoding function is provided, but for anyone from my world who is curious, I'll offer some hints..
-
-DTRH.net is much more than this though. I will be programmaticly adding hidden things about myself, blowing off steam, writing about whatever I care to. It's gonna be a lot of random. This is just the first thing I decided to do.
+1. **ASCII Art Rendering:** Displaying visual representations through text characters.
+2. **Hidden Poetry:** An encoded message is subtly embedded within the art, relating to the theme of the unknown and exploration.
 
 ---
 
-### bunny.js Code (Partial Example)
+## 🚀 How It Works
+
+bunny.js achieves its visual effects and functionality through several key steps:
+
+1. **ASCII Art Loading:**  
+   - The script fetches an ASCII art file containing a bordered layout around an ascii art image (in this case, an evil looking bunny).  
+   - Within the border, where bunny is drawn, there are empty spaces. These spaces will serve as the canvas for the message.
+
+    ```javascript
+    async function renderASCII() {
+        const response = await fetch(asciiFile);
+        const asciiArt = await response.text();
+        asciiContainer.textContent = asciiArt;
+    }
+    ```
+
+2. **Hidden Message Encoding:**  
+   - An encoded string is inserted within the empty spaces of the ASCII art.  
+   - The text is dynamically written from the top-left to the bottom-right of the border.  
+
+    ```javascript
+    function drawInnerText() {
+        asciiContainer.innerHTML = "";
+        rows.forEach((row) => { /* Dynamically populate empty spaces */ });
+    }
+    ```
+
+3. **Initial Full Fade-in Effect:**  
+   - All characters, including borders and spaces, fade in completely to ensure visibility.  
+   - This effect allows users to initially observe the entire content before it starts with some text effects
+
+    ```javascript
+    let opacity = 0;
+    const fadeInterval = setInterval(() => {
+        opacity += 0.02;
+        asciiContainer.style.opacity = opacity;
+    }, 50);
+    ```
+
+4. **Random Fade-in and Fade-out:**  
+   - The hidden message characters undergo periodic fading effects, creating an illusion of movement.  
+   - The characters themselves remain fixed, ensuring consistency in placement, while the art (bunny) and border remain static and visible.  
+
+    ```javascript
+    function charFlash(base64Elements) {
+        setInterval(() => {
+            charElement.style.opacity = charElement.style.opacity === "0" ? "1" : "0";
+        }, 500);
+    }
+    ```
+
+5. **Webpage Copy-Paste Compatibility:**  
+   - Despite visual fading, the encoded message remains present in the DOM. 
+   - Users can copy and paste the encoded text, making it retrievable regardless of visibility.  
+
+---
+
+## 📂 Project Structure
+
+```
+├── img/
+│   └── ascii/
+│       └── rabbit/
+│           └── rbt-ne.txt   # ASCII art text file, ne=no encoding.
+├── bunny.js                 # Main script
+├── index.html                # Webpage to showcase the artwork
+└── README.md                 # Documentation
+```
+
+---
+
+## 🛠️ Features
+
+- Smooth ASCII art fade-in effect.
+- Dynamic encoding placement within the ASCII border.
+- Random fading of encoded message characters.
+- Responsive scaling for mobile compatibility.
+- Simple text-based input for interactive chaos generation.
+
+---
+
+## 🔧 Usage
+
+1. **Include bunny.js in your HTML file:**
+
+    ```html
+    <script src="bunny.js"></script>
+    ```
+
+2. **Ensure the ASCII art text file is in the expected directory:**  
+   Update the `asciiFile` path in `bunny.js` if needed.
+
+3. **Run the HTML file in a browser to view the interactive effect.**
+
+4. **Decode for a pleasant surprise in the form of poetry**
+
+---
+
+## 🕵️ Hidden Message Challenge
+
+To uncover the hidden poetry, pay attention to the **fading patterns** and experiment with **ways to convert this into a readable form**. Read the section below, Configuration, for a dead giveaway ;)
+
+---
+
+## ⚙️ Configuration
+
+Modify the following variables in `bunny.js` to customize the experience:
 
 ```javascript
-// Load ASCII art and Base64 secrets
-const asciiFile = "rbt-ne.txt";
-const base64String = "<BASE64 SECRET>";
-...
-// [ drawInnerText ] - Dynamically type Base64 text in empty spaces without decoding
-//
-// Cause why decode it? This is the rabbit hole. This functionally started as a strictly
-// base4 related function and over time is essentially one which will find all the empty
-// spaces within the ascii art box and replace them character by character with a string.
-// Of course, its a bit more involved, but thats the idea.
+const asciiFile = "img/ascii/rabbit/rbt-ne.txt";  // Path to ASCII art file
+const base64String = "QmVuZWF0aCB0aGUgc3VyZmFjZQ=="; // Encoded hidden message
+```
 
-function drawInnerText() {
-    // Seamlessly merge encoded text into ascii art
+
+---
+
+## 📱 Mobile Support
+
+The script adjusts the ASCII display for smaller screens using basic window size checks. This could certainly be improved, but was outside of the scope:
+
+```javascript
+if (window.innerWidth < 600) {
+    asciiContainer.style.fontSize = "8px";
 }
 ```
 
-### Decoded Secrets
+---
 
-Exerpt:
-```
-Above the surface, the stars fold time.
-Particles touch across impossible distances,
-as though space never mattered.
-One turns, the other knows.
-Entanglement, they call it—
-a word for something we’ll never fully grasp.
-Maybe it’s a thread,
-maybe it’s a tunnel,
-maybe it’s just the way the universe whispers
-to itself.
-...
-```
+## ⚠️ Challenges Faced
 
-**Fun Fact:** The ASCII art itself encodes hidden layers—representing the chaos above and order below.
+Developing bunny.js introduced various challenges:
+
+- Handling precise placement of characters inside ASCII borders.
+- Timing the fade effects while ensuring readability.
+- Managing cross-browser text rendering inconsistencies.
+- Maintaining copy-paste integrity without breaking the art.
+- Formatting webpage
 
 ---
 
-**I hope some people take the time to decode the poem in full, especially those of you who know me in person.  And I hope you enjoy.**
+## 💡 Lessons Learned
 
-**KBS** [dec 26, 2024]
-**admin** [AT] **dtrh** [DOT] **net**
+Through this project, the following JavaScript concepts were explored:
 
+- Working with the DOM to dynamically update content.
+- Asynchronous file fetching and event handling.
+- CSS transitions and opacity manipulation.
+- Structuring modular and maintainable code.
 
+---
 
+## 📜 License
+
+This project is licensed under the MIT License. Feel free to use and modify it for your own explorations.
+
+---
+
+## 📬 Contact
+
+For questions, suggestions, or just to chat:
+
+- **Website:** [DTRH.net](https://DTRH.net)
+- **GitHub:** [DTRHnet](https://github.com/DTRHnet)
+- **Email:** admin [AT] dtrh [DOT] net
+
+---
+
+Enjoy the journey **down the rabbit hole!**
+```
